@@ -2,14 +2,19 @@ package sample4.java;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Page3m {
+    JButton b1;
+    Font font2;
+    JFrame frame;
     Page3m(String[] a,int b,String t,String u,int r,String w)
     {
-        JFrame frame = new JFrame();
+
+         frame = new JFrame();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 500);
@@ -18,7 +23,9 @@ public class Page3m {
         Container c = frame.getContentPane();
         c.setLayout(null);
 
-        JLabel label8 = new JLabel("YOU HAVE A CHANCE IN THIS COLLEGE AS PER YOUR RANK AND FIELD:");
+        font2 = new Font("Arial", Font.PLAIN,20);
+
+        JLabel label8 = new JLabel("YOU HAVE A CHANCE IN THIS COLLEGE AS PER YOUR CRITERIA:");
         label8.setBounds(100,20,1200,40);
         label8.setFont(new Font("Arial", Font.CENTER_BASELINE,30));
         c.add(label8);
@@ -43,13 +50,13 @@ public class Page3m {
         label4.setFont(new Font("Arial", Font.BOLD,30));
         c.add(label4);
         label5 = new JLabel("COLLEGE FEES(4 YRS)");
-        label5.setBounds(800,100,350,30);
+        label5.setBounds(900,100,350,30);
         label5.setFont(new Font("Arial", Font.BOLD,30));
         c.add(label5);
         if(list[0].isEmpty())
         {
             label = new JLabel("BETTER LUCK NEXT TIME !");
-            label.setBounds(100, f+30, 600, 30);
+            label.setBounds(200, f+30, 600, 30);
             label.setFont(new Font("Arial", Font.PLAIN, 30));
             label.setForeground(Color.RED);
             c.add(label);
@@ -70,7 +77,7 @@ public class Page3m {
                 label3.setForeground(Color.BLUE);
                 c.add(label3);
                 label6 = new JLabel(list[3].get(k - 1));
-                label6.setBounds(800, f, 300, 30);
+                label6.setBounds(900, f, 300, 30);
                 label6.setFont(new Font("Arial", Font.PLAIN, 20));
                 label6.setForeground(Color.BLUE);
                 c.add(label6);
@@ -98,7 +105,7 @@ public class Page3m {
             label3.setForeground(Color.BLUE);
             c.add(label3);
             label6 = new JLabel(list[3].get(z));
-            label6.setBounds(800,f+50,300,30);
+            label6.setBounds(900,f+50,300,30);
             label6.setFont(new Font("Arial", Font.PLAIN,20));
             label6.setForeground(Color.BLUE);
             c.add(label6);
@@ -125,7 +132,7 @@ public class Page3m {
                     label3.setForeground(Color.BLUE);
                     c.add(label3);
                     label6 = new JLabel(list[3].get(i));
-                    label6.setBounds(800, f, 300, 30);
+                    label6.setBounds(900, f, 300, 30);
                     label6.setFont(new Font("Arial", Font.PLAIN, 20));
                     label6.setForeground(Color.BLUE);
                     c.add(label6);
@@ -134,6 +141,14 @@ public class Page3m {
                     f+=30;
                 }
         }
+        b1 = new JButton("CLOSE");
+        b1.setBounds(500,700,300,30);
+        b1.setFont(font2);
+        c.add(b1);
+        b1.addActionListener(this::actionPerformed);
+    }
+    public void actionPerformed(ActionEvent a) {
+        frame.dispose();
     }
 }
 

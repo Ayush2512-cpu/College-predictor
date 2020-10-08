@@ -11,9 +11,12 @@ public class Validator {
     private boolean cmob = false;
     private boolean crank = false;
     public boolean check(String name ,String  email,String mobile,int x) {
-        r = Pattern.compile("^[(a-zA-Z-0-9-\\_\\+\\.)]+@[(a-z-A-z)]+\\.[(a-zA-z)]{2,3}$");
-        re = r.matcher(email);
-        if (re.matches())
+
+        String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\\.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        if (matcher.matches())
             cmail = true;
         if(x>0 & x<250000)
             crank = true;

@@ -206,7 +206,7 @@ public class prac9  implements ActionListener{
                      new Page3m(b, s,t,fees[u],x, "SC/ST");}
              }
              else{
-                 label7.setText("INCORECT , EMAIL , NAME , MOBILE NUMBER OR RANK");
+                 label7.setText("INCORRECT  EMAIL , NAME , MOBILE NUMBER OR RANK");
              }
 
     }
