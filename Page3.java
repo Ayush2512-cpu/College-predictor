@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Page3 {
-    JButton b1;
+    JButton b1,x;
     Font font2;
     JFrame frame;
     Page3(String[] a,int b,String t,String u,int r,String w)
@@ -139,14 +139,34 @@ else if(t.equals("ANY STATE") && !(u.equals("ANY FEES")))
                     f+=30;
                 }
             }
+else
+        {
+            label = new JLabel("BETTER LUCK NEXT TIME !");
+            label.setBounds(200, f+30, 600, 30);
+            label.setFont(new Font("Arial", Font.PLAIN, 30));
+            label.setForeground(Color.RED);
+            c.add(label);
+        }
         b1 = new JButton("CLOSE");
-        b1.setBounds(500,700,300,30);
+        b1.setBounds(600,700,300,30);
         b1.setFont(font2);
         c.add(b1);
         b1.addActionListener(this::actionPerformed);
-        }
+
+        x = new JButton("<--PREVIOUS");
+        x.setBounds(200,700,300,30);
+        x.setFont(font2);
+        c.add(x);
+        x.addActionListener(this::actionPerformed);
+    }
+
     public void actionPerformed(ActionEvent a) {
-        frame.dispose();
+        if (a.getActionCommand().equals("CLOSE"))
+            frame.dispose();
+        else {
+            frame.dispose();
+            new prac9();
+        }
     }
     }
 

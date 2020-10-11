@@ -20,10 +20,13 @@ public class Validator {
             cmail = true;
         if(x>0 & x<250000)
             crank = true;
+        int n = 0;
         for (int i = 0; i < name.length(); i++) {
             if ((name.charAt(i) >= 'A' & name.charAt(i) <= 'Z') | (name.charAt(i) >= 'a' & name.charAt(i) <= 'z') | (name.charAt(i) == ' '))
-                cname = true;
+               n++;
         }
+        if(n==name.length())
+            cname = true;
         String str = "";
         if(mobile.length() == 10){ cmob = verifymob(mobile);}
         else if(mobile.length() == 11){

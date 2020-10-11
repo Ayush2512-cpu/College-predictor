@@ -6,15 +6,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
+import java.io.Console;
 public class Java101 {
 
        public static void main(String args[])
         {
-            new Page1();
-           //new Newpage1();
+            // new Page1();
+            }
+
+
         }
-        }
+
 
 
 
