@@ -1,18 +1,21 @@
-package sample4.java;
+package app;
+
+import database.CollegeDAO;
+import database.CollegePredictorDAO;
+import database.StudentDAO2;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 
 public class Page1 {
     JFrame frame;
     JPanel panel;
-    Page1()
-    {
+
+    StudentDAO2 studentDAO2;
+    CollegeDAO collegeDAO;
+
+    public Page1(StudentDAO2 studentDAO2, CollegeDAO collegeDAO){
         frame = new JFrame();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -23,6 +26,13 @@ public class Page1 {
         frame.setBackground(Color.green);
         panel = new JPanel();
         panel.setBackground(Color.CYAN);
+
+        this.studentDAO2 = studentDAO2;
+        this.collegeDAO = collegeDAO;
+    }
+
+    public void runApplication()
+    {
         Container c = frame.getContentPane();
         c.setLayout(null);
         Font font3 = new Font("BOLD", Font.CENTER_BASELINE,40);
@@ -34,7 +44,7 @@ public class Page1 {
         frame.setContentPane(new JLabel(new ImageIcon("C:\\Users\\ayush\\Google Drive\\ideaprojects\\src\\sample4\\java\\Ayush.png")));
         frame.setLayout(new FlowLayout());*/
 
-        ImageIcon i = new ImageIcon("C:\\Users\\ayush\\Google Drive\\ideaprojects\\src\\sample4\\java\\Ayush.png");
+        ImageIcon i = new ImageIcon("C:\\Users\\USER\\IdeaProjects\\CollegePredictorUpdated2\\projects\\src\\main\\java\\Ayush.png");
         JLabel label = new JLabel(i);
         label.setBounds(50,100,1500,400);
         frame.add(label);
@@ -61,7 +71,7 @@ public class Page1 {
        // c.add(label);
 
         JButton b1 = new JButton("NEXT ==>");
-        b1.setBounds(500,700,300,30);
+        b1.setBounds(500,650,300,30);
         b1.setFont(new Font("Arial", Font.PLAIN,30));
         c.add(b1);
         b1.addActionListener(this::actionPerformed);
@@ -69,6 +79,7 @@ public class Page1 {
     public void actionPerformed(ActionEvent a)
     {
         frame.dispose();
-        new prac9();
+        Prac9 prac9 = new Prac9(this.studentDAO2, this.collegeDAO);
+        prac9.nextPage();
     }
 }

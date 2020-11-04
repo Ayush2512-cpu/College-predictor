@@ -1,9 +1,12 @@
-package sample4.java;
+package app;
+
+import database.CollegeDAO;
+import database.CollegePredictorDAO;
+import database.StudentDAO2;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -11,8 +14,15 @@ public class Page3 {
     JButton b1,x;
     Font font2;
     JFrame frame;
-    Page3(String[] a,int b,String t,String u,int r,String w)
+
+    StudentDAO2 studentDAO2;
+    CollegeDAO collegeDAO;
+
+    Page3(String[] a, int b, String t, String u, int r, String w, StudentDAO2 studentDAO2, CollegeDAO collegeDAO)
     {
+        this.collegeDAO = collegeDAO;
+        this.studentDAO2 = studentDAO2;
+
          frame = new JFrame();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -24,7 +34,7 @@ public class Page3 {
 
         font2 = new Font("Arial", Font.PLAIN,20);
 
-        JLabel label8 = new JLabel("YOU HAVE A CHANCE IN THIS COLLEGE AS PER YOUR CRITERIA:");
+        JLabel label8 = new JLabel("YOU HAVE A CHANCE IN THESE COLLEGES AS PER YOUR CRITERIA:");
         label8.setBounds(100,20,1200,40);
         label8.setFont(new Font("Arial", Font.CENTER_BASELINE,30));
         c.add(label8);
@@ -148,13 +158,13 @@ else
             c.add(label);
         }
         b1 = new JButton("CLOSE");
-        b1.setBounds(600,700,300,30);
+        b1.setBounds(1000,500,150,30);
         b1.setFont(font2);
         c.add(b1);
         b1.addActionListener(this::actionPerformed);
 
         x = new JButton("<--PREVIOUS");
-        x.setBounds(200,700,300,30);
+        x.setBounds(1000,300,150,30);
         x.setFont(font2);
         c.add(x);
         x.addActionListener(this::actionPerformed);
@@ -163,9 +173,10 @@ else
     public void actionPerformed(ActionEvent a) {
         if (a.getActionCommand().equals("CLOSE"))
             frame.dispose();
-        else {
+        else if(a.getActionCommand().equals("<--PREVIOUS")){
             frame.dispose();
-            new prac9();
+            Prac9 prac9 = new Prac9(this.studentDAO2,this.collegeDAO);
+            prac9.nextPage();
         }
     }
     }

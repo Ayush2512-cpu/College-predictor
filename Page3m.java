@@ -1,18 +1,27 @@
-package sample4.java;
+package app;
+
+import database.CollegeDAO;
+import database.CollegePredictorDAO;
+import database.StudentDAO2;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Page3m {
-    JButton b1;
+    JButton b1,prev;
     Font font2;
     JFrame frame;
-    Page3m(String[] a,int b,String t,String u,int r,String w)
+
+    StudentDAO2 studentDAO2;
+    CollegeDAO collegeDAO;
+
+    Page3m(String[] a,int b,String t,String u,int r,String w, StudentDAO2 studentDAO2,CollegeDAO collegeDAO)
     {
+        this.collegeDAO = collegeDAO;
+        this.studentDAO2 = studentDAO2;
 
          frame = new JFrame();
         frame.setVisible(true);
@@ -142,13 +151,25 @@ public class Page3m {
                 }
         }
         b1 = new JButton("CLOSE");
-        b1.setBounds(500,700,300,30);
+        b1.setBounds(1000,500,150,30);
         b1.setFont(font2);
         c.add(b1);
         b1.addActionListener(this::actionPerformed);
+
+        prev = new JButton("<--PREVIOUS");
+        prev.setBounds(1000,300,150,30);
+        prev.setFont(font2);
+        c.add(prev);
+        prev.addActionListener(this::actionPerformed);
     }
     public void actionPerformed(ActionEvent a) {
-        frame.dispose();
+        if (a.getActionCommand().equals("CLOSE"))
+            frame.dispose();
+        else if(a.getActionCommand().equals("<--PREVIOUS")) {
+            frame.dispose();
+            Prac9 prac9 = new Prac9(this.studentDAO2,this.collegeDAO);
+            prac9.nextPage();
+        }
     }
 }
 

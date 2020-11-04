@@ -1,10 +1,10 @@
-package sample4.java;
+package app;
 
 import java.util.ArrayList;
 
 public class Try {
     private String college[] = {"IIT Bombay", "IIT Delhi", "IIT Kanpur", "IIT Kharagpur", "IIT Madras", "IIT Roorkee", "IIT BHU", "IIT Bhubaneswar", "IIT Gandhinagar", "IIT Hyderabad", "IIT Dhanbad", "IIT Indore", "IIT Mandi", "IIT Patna", "IIT Ropar", "IIT Guwahati", "IIT Palakkad", "IIT Tirupati", "IIT Jammu", "IIT Goa", "IIT Jodhpur"};
-    private String state[] = {"Maharashtra","New Delhi","Uttar Pradesh","West Bengal","Tamil Nadu","Uttarakhand","Uttar Pradesh","Odisha","Gujarat","Hyderabad","Jharkhand","Madhya Pradesh","Himachal Pradesh","Bihar","Punjab","Assam","Kerala","Andhra Pradesh","Jammu & Kashmir","Goa","Rajasthan"};
+    private String state[] = {"Maharashtra", "New Delhi", "Uttar Pradesh", "West Bengal", "Tamil Nadu", "Uttarakhand", "Uttar Pradesh", "Odisha","Gujarat","Hyderabad","Jharkhand","Madhya Pradesh","Himachal Pradesh","Bihar","Punjab","Assam","Kerala","Andhra Pradesh","Jammu & Kashmir","Goa","Rajasthan"};
     private String nrif[] ={"3","2","4","5","1","6","11","22","24","8","12","10","31","26","25","7","NA","NA","NA","NA","53"};
     private String colfee[] = {"950000","850000","850000","1000000","800000","507040" ,"862350","1000000","1000000","900000","800000","1000000","850000","820000","444700","850000","910800","871760","950000","900000","950000"};
     public ArrayList<String>[] cry(String a[], String k, int r,String w) {
